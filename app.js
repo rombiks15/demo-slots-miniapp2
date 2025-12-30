@@ -21,6 +21,14 @@ function getGeoGroup(code) {
   return 'DEFAULT';
 }
 
+if (tg) {
+  tg.ready();
+  tg.expand();
+  tg.setHeaderColor('#000000');
+  tg.setBackgroundColor('#000000');
+}
+
+
 // ===== GEO detection (IP based) =====
 async function detectGeo() {
   const geoEl = document.getElementById('profileGeo') || document.getElementById('geo');
