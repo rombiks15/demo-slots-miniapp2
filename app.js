@@ -3,6 +3,30 @@ let tg = window.Telegram?.WebApp;
 let userId = 'demo_user';
 let username = 'Demo User';
 
+
+async function detectGeo() {
+  const geoEl = document.getElementById('profileGeo') || document.getElementById('geo');
+  if (!geoEl) return;
+
+  geoEl.textContent = 'Detecting...';
+
+  try {
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+
+    const country = data?.country_name || data?.country || 'Unknown';
+    const city = data?.city || '';
+    geoEl.textContent = city ? `${country} (${city})` : country;
+
+    // Optional: store for tracking
+    window.__geo = { country, city, code: data?.country_code || '' };
+  } catch (e) {
+    geoEl.textContent = 'Unknown';
+  }
+}
+
+
+
 // Initialize Telegram WebApp
 if (tg) {
     tg.ready();
@@ -45,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (profileAvatar) {
         profileAvatar.textContent = username.charAt(0).toUpperCase();
     }
+    detectGeo();
 });
 
 // Close button handler
