@@ -3,6 +3,26 @@ let tg = window.Telegram?.WebApp;
 let userId = 'demo_user';
 let username = 'Demo User';
 
+const GEO_GROUPS = {
+  // Edit these anytime
+  EU: ['AT','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GB','GR','HR','HU','IE','IS','IT','LT','LU','LV','MT','NL','NO','PL','PT','RO','SE','SI','SK'],
+  CIS: ['AM','AZ','BY','GE','KZ','KG','MD','RU','TJ','TM','UA','UZ'],
+  LATAM: ['AR','BO','BR','CL','CO','CR','DO','EC','GT','HN','MX','NI','PA','PE','PR','PY','SV','UY','VE'],
+  MENA: ['AE','BH','DZ','EG','IL','IQ','JO','KW','LB','LY','MA','OM','PS','QA','SA','SD','SY','TN','YE'],
+  ASIA: ['BD','CN','HK','ID','IN','JP','KR','LK','MM','MN','MY','NP','PH','PK','SG','TH','TW','VN'],
+  AFRICA: ['AO','CM','DZ','EG','ET','GH','KE','MA','NG','SN','TN','TZ','UG','ZA']
+};
+
+// Simple helper: returns "LV" -> "EU", "KZ" -> "CIS", etc.
+function getGeoGroup(code) {
+  const c = (code || '').toUpperCase();
+  for (const [group, list] of Object.entries(GEO_GROUPS)) {
+    if (list.includes(c)) return group;
+  }
+  return 'DEFAULT';
+}
+
+
 // ===== GEO detection (IP based) =====
 async function detectGeo() {
   const geoEl = document.getElementById('profileGeo') || document.getElementById('geo');
