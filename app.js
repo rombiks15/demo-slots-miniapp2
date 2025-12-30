@@ -52,7 +52,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInfoEl = document.getElementById('userInfo');
     const profileUsername = document.getElementById('profileUsername');
     const profileSubid = document.getElementById('profileSubid');
-    const profileAvatar = document.getElementById('profileAvatar');
+    if (profileAvatar) {
+    if (tg && tg.initDataUnsafe?.user?.username) {
+        const tgUsername = tg.initDataUnsafe.user.username;
+
+        profileAvatar.innerHTML = `
+            <img 
+                src="https://t.me/i/userpic/320/${tgUsername}.jpg"
+                alt="avatar"
+                style="
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    object-fit: cover;
+                "
+                onerror="this.style.display='none'"
+            />
+        `;
+    } else {
+        profileAvatar.textContent = username.charAt(0).toUpperCase();
+    }
+}
+
     
     if (userInfoEl) {
         userInfoEl.textContent = `@${username} • ID: ${userId}`;
