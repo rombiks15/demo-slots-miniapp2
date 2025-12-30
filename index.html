@@ -380,61 +380,56 @@
   </nav>
 
   <!-- Game Overlay Modal -->
-  <div class="game-overlay" id="gameOverlay">
-    <div class="overlay-header">
-      <button class="btn-back" id="backBtn" type="button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </button>
-
-      <h3 class="overlay-title" id="overlayGameTitle">Game Title</h3>
-      <button class="btn-play-real" id="playRealBtn" type="button">Play for Real</button>
-    </div>
-
-    <div class="overlay-content">
-
-  <div class="game-frame-wrap">
-    <iframe
-  id="demoFrame"
-  src=""
-  title="Demo Game"
-  frameborder="0"
-  allow="autoplay; fullscreen"
-  allowfullscreen
-  sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-></iframe>
-
-
-    <!-- Fallback if Telegram blocks iframe -->
-    <div class="demo-fallback" id="demoFallback" style="display:none;">
-      <p style="opacity:0.8; margin-bottom:12px;">
-        Demo didn’t load inside Telegram
-      </p>
-      <button class="btn-cta-large" id="openDemoExternalBtn">
-        Open Demo
-      </button>
-    </div>
-  </div>
-
-  <div class="game-cta">
-    <h4>Ready to play for real money?</h4>
-    <p>Join our top casinos and claim your welcome bonus!</p>
-    <button class="btn-cta-large" id="ctaLargeBtn">
-      Claim Bonus Now
+<div class="game-overlay" id="gameOverlay">
+  <div class="overlay-header">
+    <button class="btn-back" id="backBtn" type="button">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
     </button>
+
+    <h3 class="overlay-title" id="overlayGameTitle">Game Title</h3>
+    <button class="btn-play-real" id="playRealBtn" type="button">Play for Real</button>
   </div>
 
-</div>
+  <div class="overlay-content">
 
-      <div class="game-cta">
-        <h4>Ready to play for real money?</h4>
-        <p>Join our top casinos and claim your welcome bonus!</p>
-        <button class="btn-cta-large" id="ctaLargeBtn" type="button">Claim Bonus Now</button>
+    <!-- DEMO FRAME -->
+    <div class="game-frame-wrap">
+      <iframe
+        id="demoFrame"
+        src=""
+        title="Demo Game"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+      ></iframe>
+
+      <!-- Telegram fallback if iframe blocked -->
+      <div class="demo-fallback" id="demoFallback" style="display:none;">
+        <p style="opacity:0.8; margin-bottom:12px;">
+          Demo didn’t load inside Telegram
+        </p>
+        <button class="btn-cta-large" id="openDemoExternalBtn" type="button">
+          Open Demo
+        </button>
       </div>
     </div>
+
+    <!-- REAL MONEY CTA (ONLY ONE) -->
+    <div class="game-cta">
+      <h4>Ready to play for real money?</h4>
+      <p>Join our top casinos and claim your welcome bonus!</p>
+      <button class="btn-cta-large" id="ctaLargeBtn" type="button">
+        Claim Bonus Now
+      </button>
+    </div>
+
   </div>
+</div>
+
 
   <!-- Lucky Wheel Modal -->
   <div class="wheel-modal" id="wheelModal">
