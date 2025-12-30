@@ -45,6 +45,34 @@ async function detectGeo() {
   }
 }
 
+function loadDemo(game) {
+  const iframe = document.getElementById('demoFrame');
+  const fallback = document.getElementById('demoFallback');
+  const openBtn = document.getElementById('openDemoExternalBtn');
+
+  if (!iframe || !game?.demoUrl) return;
+
+  iframe.src = game.demoUrl;
+
+  // Telegram often blocks iframe → show fallback after delay
+  setTimeout(() => {
+    try {
+      if (!iframe.contentWindow || iframe.contentWindow.length === 0) {
+        fallback.style.display = 'block';
+      }
+    } catch (e) {
+      fallback.style.display = 'block';
+    }
+  }, 1500);
+
+  // External open
+  openBtn.onclick = () => {
+    if (tg) tg.openLink(game.demoUrl);
+    else window.open(game.demoUrl, '_blank');
+  };
+}
+
+
 // ===== Telegram init =====
 if (tg) {
   tg.ready();
