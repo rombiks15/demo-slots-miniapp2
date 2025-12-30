@@ -389,17 +389,37 @@
     </div>
 
     <div class="overlay-content">
-      <div class="game-frame-placeholder">
-        <div class="placeholder-content">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-            <path d="M15 2H9C7.89543 2 7 2.89543 7 4V20C7 21.1046 7.89543 22 9 22H15C16.1046 22 17 21.1046 17 20V4C17 2.89543 16.1046 2 15 2Z"
-              stroke="currentColor" stroke-width="2" />
-            <circle cx="12" cy="12" r="3" fill="currentColor" />
-          </svg>
-          <p>Demo Game Loading...</p>
-          <p class="placeholder-note">In production, this would load the actual game iframe</p>
-        </div>
-      </div>
+
+  <div class="game-frame-wrap">
+    <iframe
+      id="demoFrame"
+      src=""
+      title="Demo Game"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    ></iframe>
+
+    <!-- Fallback if Telegram blocks iframe -->
+    <div class="demo-fallback" id="demoFallback" style="display:none;">
+      <p style="opacity:0.8; margin-bottom:12px;">
+        Demo didn’t load inside Telegram
+      </p>
+      <button class="btn-cta-large" id="openDemoExternalBtn">
+        Open Demo
+      </button>
+    </div>
+  </div>
+
+  <div class="game-cta">
+    <h4>Ready to play for real money?</h4>
+    <p>Join our top casinos and claim your welcome bonus!</p>
+    <button class="btn-cta-large" id="ctaLargeBtn">
+      Claim Bonus Now
+    </button>
+  </div>
+
+</div>
 
       <div class="game-cta">
         <h4>Ready to play for real money?</h4>
