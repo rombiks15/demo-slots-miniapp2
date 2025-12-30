@@ -397,13 +397,15 @@
 
   <div class="game-frame-wrap">
     <iframe
-      id="demoFrame"
-      src=""
-      title="Demo Game"
-      frameborder="0"
-      allow="autoplay; fullscreen"
-      allowfullscreen
-    ></iframe>
+  id="demoFrame"
+  src=""
+  title="Demo Game"
+  frameborder="0"
+  allow="autoplay; fullscreen"
+  allowfullscreen
+  sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+></iframe>
+
 
     <!-- Fallback if Telegram blocks iframe -->
     <div class="demo-fallback" id="demoFallback" style="display:none;">
