@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     if (!file.ok) return res.status(200).json({ ok: true, url: null });
 
     const filePath = file.result.file_path;
-    const url = `https://api.telegram.org/file/bot${8587747992:AAGsQ7KeyDc2VgVu4c5Pi1oraih6irDxvv0}/${filePath}`;
+    const url = `https://api.telegram.org/file/bot${token}/${filePath}`;
 
     return res.status(200).json({ ok: true, url });
   } catch (e) {
